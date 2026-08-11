@@ -1,0 +1,26 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Order Base View'
+@Metadata.ignorePropagatedAnnotations: true
+@Metadata.allowExtensions: true
+define view entity YAVISR_ORDER_000
+  as select from zyrdorder000
+  association [1..*] to YAVISR_ORDERITEM_000 as _Item on $projection.Uuid = _Item.ParentUUID
+  association [0..1] to YAVISI_ORDERSTATUS_VH as _OrderStatusTxt on $projection.Status = _OrderStatusTxt.Status
+{
+  key uuid                  as Uuid,
+      order_id              as OrderId,
+      customer_id           as CustomerId,
+      order_date            as OrderDate,
+      status                as Status,
+      currency_code         as CurrencyCode,
+      @Semantics.amount.currencyCode: 'CurrencyCode'
+      net_amount            as NetAmount,
+      local_created_by      as LocalCreatedBy,
+      local_created_at      as LocalCreatedAt,
+      local_last_changed_by as LocalLastChangedBy,
+      local_last_changed_at as LocalLastChangedAt,
+      last_changed_at       as LastChangedAt,
+      _Item,
+      _OrderStatusTxt
+}
