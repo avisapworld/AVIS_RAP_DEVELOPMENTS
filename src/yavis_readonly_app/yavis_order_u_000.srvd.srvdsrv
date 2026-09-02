@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service definition for order'
+define service YAVIS_ORDER_U_000 {
+  expose YAVISC_ORDER_000;
+  expose YAVISC_ORDERITEM_000;
+}

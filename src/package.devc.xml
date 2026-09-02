@@ -3,7 +3,7 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DEVC>
-    <CTEXT>Dev Package For YAVIS</CTEXT>
+    <CTEXT>Package For Avishek&apos;s Developments</CTEXT>
     <LANGUAGE>E</LANGUAGE>
     <MASTERLANG>E</MASTERLANG>
     <SRV_CHECK>X</SRV_CHECK>

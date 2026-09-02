@@ -5,7 +5,7 @@
    <SRVD>
     <NAME>YAVIS_ORDER_U_000</NAME>
     <TYPE>SRVD/SRV</TYPE>
-    <DESCRIPTION>Service Definition For Orders</DESCRIPTION>
+    <DESCRIPTION>Service definition for order</DESCRIPTION>
     <LANGUAGE>EN</LANGUAGE>
     <MASTER_LANGUAGE>EN</MASTER_LANGUAGE>
     <SOURCE_URI>./yavis_order_u_000/source/main</SOURCE_URI>

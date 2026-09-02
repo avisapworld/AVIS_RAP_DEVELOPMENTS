@@ -1,11 +1,11 @@
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Consumpton View For OrderItem'
+@EndUserText.label: 'Order item interface view read-only'
 @Metadata.ignorePropagatedAnnotations: true
-@Metadata.allowExtensions: true
-define view entity YAVISC_ORDERITEM_000
-  as select from YAVISR_ORDERITEM_000
-  association [1..1] to YAVISC_ORDER_000 as _Order on $projection.ParentUUID = _Order.Uuid
+define view entity YAVISR_ORDERITEM_000
+  as select from ZYRDR_ITEM000
+
+  association [1..1] to YAVISR_ORDER_000 as _Order on $projection.ParentUUID = _Order.Uuid
 {
   key UUID,
       ParentUUID,

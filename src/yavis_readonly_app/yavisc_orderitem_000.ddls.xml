@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>YAVISC_ORDERITEM_000</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Consumpton View For OrderItem</DDTEXT>
+    <DDTEXT>Order item consumption read-only</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>
