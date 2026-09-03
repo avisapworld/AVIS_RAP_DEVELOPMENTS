@@ -6,6 +6,7 @@ define view entity YAVISR_ORDERITEM_000
   as select from ZYRDR_ITEM000
 
   association [1..1] to YAVISR_ORDER_000 as _Order on $projection.ParentUUID = _Order.Uuid
+  association [0..1] to YRDI_ItemStatus_VH as _ItemStatusTxt on $projection.Status = _ItemStatusTxt.Status
 {
   key UUID,
       ParentUUID,
@@ -19,5 +20,6 @@ define view entity YAVISR_ORDERITEM_000
       Amount,
       Status,
       /* Associations */
-      _Order
+      _Order,
+      _ItemStatusTxt
 }

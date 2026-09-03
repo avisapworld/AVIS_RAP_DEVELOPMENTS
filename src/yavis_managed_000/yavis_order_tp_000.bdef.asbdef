@@ -1,0 +1,59 @@
+managed implementation in class ybp_avis_order_tp_000 unique;
+strict ( 2 );
+
+define behavior for YAVIS_Order_TP_000 //alias <alias_name>
+persistent table zyrdorder000
+lock master
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly, numbering : managed ) Uuid;
+  association _Item { create; }
+
+  mapping for zyrdorder000 corresponding
+  {
+    uuid = Uuid;
+    orderid = Order_Id;
+    customerid = Customer_Id;
+    status = Status;
+    currencycode = Currency_Code;
+    netamount = Net_Amount;
+    localcreatedby = Local_Created_By;
+    localcreatedat = Local_Created_At;
+    locallastchangedby = Local_Last_Changed_By;
+    locallastchangedat = Local_Last_Changed_At;
+    lastchangedat = Last_Changed_At;
+    orderdate = order_date;
+  }
+}
+
+define behavior for YAVIS_ORDERITEM_TP_000 //alias <alias_name>
+persistent table zyrditem000
+lock dependent by _Order
+authorization dependent by _Order
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly, numbering : managed ) Uuid;
+  field ( readonly) ParentUuid;
+  association _Order;
+
+  mapping for zyrditem000 corresponding
+  {
+
+    uuid = Uuid;
+    parentuuid = Parent_Uuid;
+    productid = product_id;
+    itemid = Item_Id;
+    uom = Uom;
+    reqquantity = Req_Quantity;
+    currencycode = Currency_Code;
+    amount = Amount;
+    status = Status;
+  }
+
+}

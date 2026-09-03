@@ -2,6 +2,8 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Order item consumption read-only'
 @Metadata.ignorePropagatedAnnotations: true
+@Search.searchable: true
+@Metadata.allowExtensions: true
 define view entity YAVISC_ORDERITEM_000 as select from YAVISR_ORDERITEM_000
 {
   key UUID,
@@ -16,13 +18,13 @@ define view entity YAVISC_ORDERITEM_000 as select from YAVISR_ORDERITEM_000
       CurrencyCode,
       @Semantics.amount.currencyCode: 'CurrencyCode'
       Amount,
-     // @ObjectModel.text.element: [ 'ItemStatusText' ]
+    @ObjectModel.text.element: [ 'ItemStatusText' ]
       Status,
-     // @Semantics.text
-      //@Search.defaultSearchElement: true
-      //@Search.fuzzinessThreshold: 0.7
-      //_ItemStatusTxt.StatusText as ItemStatusText,
+      @Semantics.text
+     @Search.defaultSearchElement: true
+      @Search.fuzzinessThreshold: 0.7
+      _ItemStatusTxt.StatusText as ItemStatusText,
       /* Associations */
-      _Order
-      //_ItemStatusTxt
+      _Order,
+      _ItemStatusTxt
 }

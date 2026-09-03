@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service definition for order transaction processing'
+define service YAVIS_UI_ORDER_TP_000 {
+  expose YAVISC_ORDER_TP_000;
+  expose YAVISC_ORDERITEM_TP_000;
+}
